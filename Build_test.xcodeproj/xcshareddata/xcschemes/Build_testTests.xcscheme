@@ -14,10 +14,24 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E6F1B4CC27FECD130019BEAB"
-               BuildableName = "Tests iOS.xctest"
-               BlueprintName = "Tests iOS"
-               ReferencedContainer = "container:Github_Actions.xcodeproj">
+               BlueprintIdentifier = "E676663027FFE505000593DA"
+               BuildableName = "Build_testTests.xctest"
+               BlueprintName = "Build_testTests"
+               ReferencedContainer = "container:Build_test.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E676661A27FFE503000593DA"
+               BuildableName = "Build_test.app"
+               BlueprintName = "Build_test"
+               ReferencedContainer = "container:Build_test.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +46,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E6F1B4CC27FECD130019BEAB"
-               BuildableName = "Tests iOS.xctest"
-               BlueprintName = "Tests iOS"
-               ReferencedContainer = "container:Github_Actions.xcodeproj">
+               BlueprintIdentifier = "E676663027FFE505000593DA"
+               BuildableName = "Build_testTests.xctest"
+               BlueprintName = "Build_testTests"
+               ReferencedContainer = "container:Build_test.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -52,26 +66,17 @@
       allowLocationSimulation = "YES">
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E6F1B4CC27FECD130019BEAB"
-            BuildableName = "Tests iOS.xctest"
-            BlueprintName = "Tests iOS"
-            ReferencedContainer = "container:Github_Actions.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

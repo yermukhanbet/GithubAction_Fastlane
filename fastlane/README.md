@@ -21,7 +21,7 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane ios build
 ```
 
-Description of what the lane does
+Build the lane
 
 ### ios test
 
@@ -29,7 +29,7 @@ Description of what the lane does
 [bundle exec] fastlane ios test
 ```
 
-Run test
+Run the tests
 
 ----
 

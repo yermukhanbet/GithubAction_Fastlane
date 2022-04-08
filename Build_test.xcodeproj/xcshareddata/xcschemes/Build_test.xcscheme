@@ -14,10 +14,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E6F1B4BF27FECD130019BEAB"
-               BuildableName = "Github_Actions.app"
-               BlueprintName = "Github_Actions (iOS)"
-               ReferencedContainer = "container:Github_Actions.xcodeproj">
+               BlueprintIdentifier = "E676661A27FFE503000593DA"
+               BuildableName = "Build_test.app"
+               BlueprintName = "Build_test"
+               ReferencedContainer = "container:Build_test.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E676663027FFE505000593DA"
+               BuildableName = "Build_testTests.xctest"
+               BlueprintName = "Build_testTests"
+               ReferencedContainer = "container:Build_test.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +46,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E6F1B4CC27FECD130019BEAB"
-               BuildableName = "Tests iOS.xctest"
-               BlueprintName = "Tests iOS"
-               ReferencedContainer = "container:Github_Actions.xcodeproj">
+               BlueprintIdentifier = "E676663027FFE505000593DA"
+               BuildableName = "Build_testTests.xctest"
+               BlueprintName = "Build_testTests"
+               ReferencedContainer = "container:Build_test.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E676663A27FFE505000593DA"
+               BuildableName = "Build_testUITests.xctest"
+               BlueprintName = "Build_testUITests"
+               ReferencedContainer = "container:Build_test.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -54,10 +78,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E6F1B4BF27FECD130019BEAB"
-            BuildableName = "Github_Actions.app"
-            BlueprintName = "Github_Actions (iOS)"
-            ReferencedContainer = "container:Github_Actions.xcodeproj">
+            BlueprintIdentifier = "E676661A27FFE503000593DA"
+            BuildableName = "Build_test.app"
+            BlueprintName = "Build_test"
+            ReferencedContainer = "container:Build_test.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -71,10 +95,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E6F1B4BF27FECD130019BEAB"
-            BuildableName = "Github_Actions.app"
-            BlueprintName = "Github_Actions (iOS)"
-            ReferencedContainer = "container:Github_Actions.xcodeproj">
+            BlueprintIdentifier = "E676661A27FFE503000593DA"
+            BuildableName = "Build_test.app"
+            BlueprintName = "Build_test"
+            ReferencedContainer = "container:Build_test.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
