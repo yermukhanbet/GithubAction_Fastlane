@@ -1,0 +1,7 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -scheme "Actions Tests iOS" -project ./Github_Actions.xcodeproj -derivedDataPath "~/Library/Developer/Xcode/DerivedData" -destination "platform=iOS Simulator,id=7F7D26AB-7978-4A87-938A-C16D6FBF8EF5" build test
+
+User defaults from command line:
+    IDEDerivedDataPathOverride = /Users/eazel5/Library/Developer/Xcode/DerivedData
+    IDEPackageSupportUseBuiltinSCM = YES
+
