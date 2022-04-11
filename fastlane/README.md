@@ -31,6 +31,22 @@ Build the lane
 
 Run the tests
 
+### ios beta_new_minor
+
+```sh
+[bundle exec] fastlane ios beta_new_minor
+```
+
+testflight minor
+
+### ios beta_new_patch
+
+```sh
+[bundle exec] fastlane ios beta_new_patch
+```
+
+testflight patch
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

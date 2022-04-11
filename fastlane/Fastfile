@@ -32,16 +32,15 @@ platform :ios do
 end
 
 platform :ios do
-  dec "testflight minor"
-  lane :beta_new_minor
-    
+  desc "testflight minor"
+  lane :beta_new_minor do
+     increment_buid_number
   end
 end
 
 platform :ios do
-  dec "testflight patch"
-  lane :beta_new_patch
-    
+  desc "testflight patch"
+  lane :beta_new_patch do
+     increment_build_number
   end
 end
-
