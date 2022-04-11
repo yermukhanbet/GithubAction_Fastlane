@@ -75,7 +75,7 @@ jobs:
   create_patch_tag:
     name: Create patch tag
     needs: build
-    if: ! startsWith(github.head_ref, 'release/v')
+    if: "! startsWith(github.head_ref, 'release/v')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/hello-world-javascript-action@v1.1
