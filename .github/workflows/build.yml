@@ -15,30 +15,30 @@ jobs:
       issues: write
 
     steps:
-#     - name: Checkout
-#       uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
 
-#     - name: Select Xcode Version
-#       uses: maxim-lobanov/setup-xcode@v1
-#       with:
-#         xcode-version: latest-stable
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest-stable
 
-#     - name: Setup node
-#       uses: actions/setup-node@v1
-#       with:
-#         node-version: "10.x"
+    - name: Setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.x"
 
-#     - name: Setup ruby
-#       uses: ruby/setup-ruby@v1
-#       with:
-#         ruby-version: "2.6.8"
+    - name: Setup ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: "2.6.8"
 
-#     - name: Install fastlane
-#       run: brew install fastlane
+    - name: Install fastlane
+      run: brew install fastlane
 
-#     - name: Build
-#       run: |
-#         fastlane build
+    - name: Build
+      run: |
+        fastlane build
         
     - name: Add comment
       uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
@@ -57,6 +57,9 @@ jobs:
     if: startsWith(github.head_ref, 'release/v')
     runs-on: ubuntu-latest
     steps:
+      - name: Deploy minor to Testflight
+        run: |
+          fastlane beta_new_minor
       - uses: actions/hello-world-javascript-action@v1.1
       - uses: actions/checkout@v2
       - name: Bump version and push tag
@@ -78,6 +81,9 @@ jobs:
     if: "! startsWith(github.head_ref, 'release/v')"
     runs-on: ubuntu-latest
     steps:
+      - name: Deploy patch to Testflight
+        run: |
+          fastlane beta_new_patch
       - uses: actions/hello-world-javascript-action@v1.1
       - uses: actions/checkout@v2
       - name: Bump version and push tag
