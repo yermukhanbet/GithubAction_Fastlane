@@ -31,3 +31,17 @@ platform :ios do
   end
 end
 
+platform :ios do
+  dec "testflight minor"
+  lane :beta_new_minor
+    
+  end
+end
+
+platform :ios do
+  dec "testflight patch"
+  lane :beta_new_patch
+    
+  end
+end
+
