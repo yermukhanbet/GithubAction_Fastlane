@@ -45,7 +45,9 @@ jobs:
       with:
         issue-number: 10
         body: |
-         ${{ github.head_ref }}  
+          ${{ github.head_ref == 'release/**' }}
+          ${{ github.head_ref == 'hotfix/**' }}
+          ${{ github.head_ref }}
         
 
   create_minor_tag:
