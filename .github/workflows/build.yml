@@ -11,8 +11,6 @@ jobs:
     name: Build
     if: github.event.pull_request.merged == true
     runs-on: macos-latest
-    permissions:
-      issues: write
 
     steps:
     - name: Checkout
@@ -39,16 +37,6 @@ jobs:
     - name: Build
       run: |
         fastlane build
-        
-    - name: Add comment
-      uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
-      with:
-        issue-number: 10
-        body: |
-          ${{ github.head_ref == 'release/**' }}
-          ${{ github.head_ref == 'hotfix/**' }}
-          ${{ github.head_ref }}
-          ${{ startsWith(github.head_ref, 'release/v') }}
         
   deploy_minor:
     name: Deploy minor version
