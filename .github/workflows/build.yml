@@ -57,9 +57,24 @@ jobs:
     if: startsWith(github.head_ref, 'release/v')
     runs-on: ubuntu-latest
     steps:
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.6.8"
+
+      - name: Install fastlane
+        run: brew install fastlane
+        
       - name: Deploy minor to Testflight
         run: |
           fastlane beta_new_minor
+          
+      - name: Create tag
       - uses: actions/hello-world-javascript-action@v1.1
       - uses: actions/checkout@v2
       - name: Bump version and push tag
@@ -78,9 +93,26 @@ jobs:
   create_patch_tag:
     name: Create patch tag
     needs: build
-    if: "! startsWith(github.head_ref, 'release/v')"
+    if: startsWith(github.head_ref, 'release/v')
     runs-on: ubuntu-latest
     steps:
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.6.8"
+
+      - name: Install fastlane
+        run: brew install fastlane
+
+      - name: Deploy minor to Testflight
+        run: |
+          fastlane beta_new_minor
+
       - name: Deploy patch to Testflight
         run: |
           fastlane beta_new_patch
