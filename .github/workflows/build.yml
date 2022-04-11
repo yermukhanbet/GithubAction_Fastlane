@@ -41,17 +41,17 @@ jobs:
   create_minor_tag:
     name: Create minor tag
     needs: build
+    if: ${{ github.head_ref == 'release/**' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/hello-world-javascript-action@v1.1
-        if: ${{ github.head_ref == 'release/**' }}
       - uses: actions/checkout@v2
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
         with: 
           github_token: ${{ secrets.TOKEN }}
-          defatul_bump: minor
+          defatult_bump: minor
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
@@ -62,17 +62,17 @@ jobs:
   create_patch_tag:
     name: Create patch tag
     needs: build
+    if: ${{ github.head_ref == 'hotfix/**' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/hello-world-javascript-action@v1.1
-        if: ${{ github.head_ref == 'hotfix/**' }}
       - uses: actions/checkout@v2
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
         with: 
           github_token: ${{ secrets.TOKEN }}
-          defatul_bump: patch
+          defatult_bump: patch
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
