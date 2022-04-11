@@ -36,6 +36,8 @@ jobs:
         fastlane build
         
   create_tag:
+    name: Create tag
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
