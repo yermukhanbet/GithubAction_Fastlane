@@ -1,12 +1,15 @@
 name: Build project
 
 on:
-  push:
+  pull_request_target:
+    types:
+      - closed
     branches: [ main ]
 
 jobs:
   build:
     name: Build
+    if: github.event.pull_request.merged == true
     runs-on: macos-latest
 
     steps:
@@ -22,7 +25,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: "10.x"
-      
+
     - name: Setup ruby
       uses: ruby/setup-ruby@v1
       with:
@@ -30,22 +33,46 @@ jobs:
 
     - name: Install fastlane
       run: brew install fastlane
-      
+
     - name: Build
       run: |
         fastlane build
-        
-  create_tag:
-    name: Create tag
+
+  create_minor_tag:
+    name: Create minor tag
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/hello-world-javascript-action@v1.1
+        if: ${{ github.head_ref == 'release/**' }}
       - uses: actions/checkout@v2
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
         with: 
           github_token: ${{ secrets.TOKEN }}
+          defatul_bump: minor
+      - name: Create a GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
+
+  create_patch_tag:
+    name: Create patch tag
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/hello-world-javascript-action@v1.1
+        if: ${{ github.head_ref == 'hotfix/**' }}
+      - uses: actions/checkout@v2
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.0
+        with: 
+          github_token: ${{ secrets.TOKEN }}
+          defatul_bump: patch
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
