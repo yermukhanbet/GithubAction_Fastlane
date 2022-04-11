@@ -15,30 +15,30 @@ jobs:
       issues: write
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+#     - name: Checkout
+#       uses: actions/checkout@v2
 
-    - name: Select Xcode Version
-      uses: maxim-lobanov/setup-xcode@v1
-      with:
-        xcode-version: latest-stable
+#     - name: Select Xcode Version
+#       uses: maxim-lobanov/setup-xcode@v1
+#       with:
+#         xcode-version: latest-stable
 
-    - name: Setup node
-      uses: actions/setup-node@v1
-      with:
-        node-version: "10.x"
+#     - name: Setup node
+#       uses: actions/setup-node@v1
+#       with:
+#         node-version: "10.x"
 
-    - name: Setup ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: "2.6.8"
+#     - name: Setup ruby
+#       uses: ruby/setup-ruby@v1
+#       with:
+#         ruby-version: "2.6.8"
 
-    - name: Install fastlane
-      run: brew install fastlane
+#     - name: Install fastlane
+#       run: brew install fastlane
 
-    - name: Build
-      run: |
-        fastlane build
+#     - name: Build
+#       run: |
+#         fastlane build
         
     - name: Add comment
       uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
@@ -48,12 +48,13 @@ jobs:
           ${{ github.head_ref == 'release/**' }}
           ${{ github.head_ref == 'hotfix/**' }}
           ${{ github.head_ref }}
+          ${{ startsWith(github.head_ref, 'release/v') }}
         
 
   create_minor_tag:
     name: Create minor tag
     needs: build
-    if: ${{ github.head_ref == 'release/**' }}
+    if: startsWith(github.head_ref, 'release/v')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/hello-world-javascript-action@v1.1
@@ -74,7 +75,7 @@ jobs:
   create_patch_tag:
     name: Create patch tag
     needs: build
-    if: ${{ github.head_ref == 'hotfix/**' }}
+    if: ! startsWith(github.head_ref, 'release/v')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/hello-world-javascript-action@v1.1
