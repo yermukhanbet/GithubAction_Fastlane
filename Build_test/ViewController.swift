@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     public func sum(first: Int, second: Int) -> Int {
         return first + second
     }
+    
+    private func forMinorUpdate() {
+        print("test")
+    }
 
 }
 
