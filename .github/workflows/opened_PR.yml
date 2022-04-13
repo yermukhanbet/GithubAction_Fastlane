@@ -20,13 +20,11 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Slack Notification
-        uses: 8398a7/action-slack@v3
+      - name: Send message to Slack API
+        uses: archive/github-actions-slack@v2.0.0
+        id: notify
         with:
-          status: ${{ job.status }}
-          author_name: ${{ github.actor }}
-          fields: repo,message,author,pullRequest
-          text: "@Yessen Pull request was opened ${{ steps.find-pull-request.outputs.number }} "
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_PR }}
-        if: always()
+          slack-bot-user-oauth-access-token: ${{ secrets.SLACK_PR }}
+          slack-channel: C03AQ9B7A4X #USE CHANNEL ID, NOT CHANNEL NAME, SINCE ID IS USED IN NEW SLACK API's
+          slack-text: Hello! ${{ steps.find-pull-request.outputs.number }} was opened!\n${{ steps.comment-body.outputs.body }}
+          slack-optional-icon_emoji: ":github_icon:"
