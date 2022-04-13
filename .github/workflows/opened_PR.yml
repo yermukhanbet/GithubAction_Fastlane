@@ -25,7 +25,7 @@ jobs:
         with:
           status: ${{ job.status }}
           author_name: ${{ github.actor }}
-          fields: repo,message,author,workflow
+          fields: repo,message,author,pullRequest
           text: "Pull request was opened ${{ steps.find-pull-request.outputs.number }} "
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_PR }}
