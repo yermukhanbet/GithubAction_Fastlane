@@ -3,7 +3,7 @@
 name: Comment on pr
 
 on:
-  pull_request_target
+  pull_request_review
 
 jobs:
   add-comment:
@@ -11,10 +11,9 @@ jobs:
     permissions:
       issues: write
     steps:
-       - name: Create comment
-         uses: peter-evans/create-or-update-comment@v2
+       - name: Comment PR
+         uses: thollander/actions-comment-pull-request@v1
          with:
-              issue-number: ${{github.event.number}}
-              token: ENV["TOKEN"]
-              body: |
-                LGTM
+           message: 'LGTM!'
+           pr_number: ${{github.event.pull_request.number}} # This will comment on pull request #123
+           GITHUB_TOKEN: ${{ secrets.TOKEN }}
