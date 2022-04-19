@@ -11,9 +11,9 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Comment PR
-        uses: thollander/actions-comment-pull-request@v1
-
-        with:
-          message: 'Example of message !'
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+       - name: Create comment
+         uses: peter-evans/create-or-update-comment@v2
+         with:
+              issue-number: 1
+              body: |
+                LGTM
