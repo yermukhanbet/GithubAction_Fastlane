@@ -3,7 +3,7 @@
 name: Comment on pr
 
 on:
-  pull_request_review
+  pull_request
 
 jobs:
   add-comment:
@@ -15,5 +15,5 @@ jobs:
          uses: thollander/actions-comment-pull-request@v1
          with:
            message: 'LGTM!'
-           pr_number: ${{github.event.pull_request.number}} # This will comment on pull request #123
+           pr_number: ${{github.event.number}} # This will comment on pull request #123
            GITHUB_TOKEN: ${{ secrets.TOKEN }}
