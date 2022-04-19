@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }
     
     private func forMinorUpdate() {
-        print("testsddsa sdfscxzdf")
+        print("testsddsaasd sdfscxzdf")
     }
 
 }
