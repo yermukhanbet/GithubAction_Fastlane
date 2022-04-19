@@ -15,5 +15,6 @@ jobs:
          uses: peter-evans/create-or-update-comment@v2
          with:
               issue-number: ${{github.event.number}}
+              token: ENV["TOKEN"]
               body: |
                 LGTM
