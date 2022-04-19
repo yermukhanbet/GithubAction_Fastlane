@@ -1,10 +1,9 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Comment on issue
+name: Comment on pr
 
 on:
-  issues:
-    types: [opened]
+  pull_request_target
 
 jobs:
   add-comment:
@@ -12,9 +11,9 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Add comment
-        uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v1
+
         with:
-          issue-number: ${{ github.event.issue.number }}
-          body: |
-           Good luck on that one! 
+          message: 'Example of message !'
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
