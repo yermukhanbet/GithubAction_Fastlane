@@ -40,12 +40,12 @@ jobs:
         run: |
           fastlane bumpMinor
       
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Increment version
-          branch: post_release
-          create_branch: true
+#       - name: Commit changes
+#         uses: stefanzweifel/git-auto-commit-action@v4
+#         with:
+#           commit_message: Increment version
+#           branch: post_release
+#           create_branch: true
         
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
