@@ -2,12 +2,13 @@ name: Run Tests
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [develop, main ]
 
 jobs:
   builds:
     name: Build
     runs-on: macos-latest
+    if: "!startsWith(github.head_ref, 'post_release')"
 
     steps:
     - name: Checkout
