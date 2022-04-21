@@ -1,0 +1,46 @@
+# This is a basic workflow to help you get started with Actions
+
+name: bump version
+
+# Controls when the workflow will run
+on:
+  pull_request_target:
+    types: 
+      - closed
+    branches: [ main ]
+
+jobs:
+  bump:
+    if: github.event.pull_request.merged == true
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Select Xcode Version
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.6.8"
+
+      - name: Install fastlane
+        run: brew install fastlane
+
+      - name: bump version
+        run: |
+          fastlane bumpMinor
+      
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Increment version
