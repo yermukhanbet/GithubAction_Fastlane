@@ -53,6 +53,7 @@ jobs:
           token: ${{ secrets.TOKEN }}
           committer: Github <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          branch: post_release
           base: develop
           body: |
             bump version in xcodeproj based on update type.
