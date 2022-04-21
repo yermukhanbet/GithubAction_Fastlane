@@ -44,4 +44,17 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Increment version
-          branch: main
+          branch: post_release
+          create_branch: true
+        
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with: 
+          token: ${{ secrets.TOKEN }}
+          committer: Github <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          base: develop
+          body: |
+            bump version in xcodeproj based on update type.
+            from github actions cloud.
+        
