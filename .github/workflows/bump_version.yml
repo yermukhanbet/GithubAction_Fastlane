@@ -40,15 +40,6 @@ jobs:
       - name: bump version
         run: |
           fastlane bumpMinor
-            
-  openPR:
-    name: openPR
-    needs: bump
-    runs-on: macos-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with: 
@@ -59,7 +50,7 @@ jobs:
           base: develop
           body: |
             bump version in xcodeproj based on update type.
-            from github actions cloud.
-          
+            from github actions cloud. 
+            skip-checks: true
           
         
