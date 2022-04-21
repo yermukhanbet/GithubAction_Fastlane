@@ -44,3 +44,10 @@ platform :ios do
      increment_build_number
   end
 end
+
+platform :ios do
+  desc "increment_ver"
+  lane :bumpMinor do
+    increment_version_number_in_xcodeproj(bump_type: "minor")
+  end
+end

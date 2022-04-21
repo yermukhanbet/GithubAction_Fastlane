@@ -47,6 +47,14 @@ testflight minor
 
 testflight patch
 
+### ios bumpMinor
+
+```sh
+[bundle exec] fastlane ios bumpMinor
+```
+
+increment_ver
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
