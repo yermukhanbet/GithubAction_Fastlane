@@ -1,0 +1,26 @@
+name: Test SSH installing on push
+
+on:
+    push:
+        branches: [ develop ]
+
+jobs:
+    installSSH:
+        name: InstallSSH
+        
+        runs-on: macos-12
+        
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+          
+        - name: Select Xcode Version
+          uses: maxim-lobanov/setup-xcode@v1
+          with:
+            xcode-version: '13.4.0'
+            
+        - name: Install SSH keys
+          uses: shimataro/ssh-key-action@v2
+          with:
+            key: ${{ secrets.SSH_KEY_TEST }}
+            known_hosts: unnecessary
