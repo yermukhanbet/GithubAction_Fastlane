@@ -24,3 +24,6 @@ jobs:
           with:
             key: ${{ secrets.SSH_KEY_TEST }}
             known_hosts: unnecessary
+            
+        - name: git clone with ssh
+          run: git clone git@github.com:yermukhanbet/PrivateRepository.git
