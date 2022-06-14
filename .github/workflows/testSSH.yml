@@ -24,14 +24,12 @@ jobs:
           with:
             key: ${{ secrets.SSH_TESTKIT }}
             known_hosts: unnecessary
-            name: ssh_testkit
         
         - name: Install Keychain ssh
           uses: shimataro/ssh-key-action@v2
           with:
             key: ${{ secrets.SSH_KEYCHAINKIT }}
             known_hosts: unnecessary
-            name: ssh_keychainkit
             
         - name: print created files for ssh
           run: ls -l ~/.ssh
