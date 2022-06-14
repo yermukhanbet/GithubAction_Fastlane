@@ -19,11 +19,28 @@ jobs:
           with:
             xcode-version: '13.4.0'
             
-        - name: Install SSH keys
+        - name: Install testkit SSH
           uses: shimataro/ssh-key-action@v2
           with:
             key: ${{ secrets.SSH_TESTKIT }}
             known_hosts: unnecessary
+            name: ssh_testkit
+        
+        - name: Install Keychain ssh
+          uses: shimataro/ssh-key-action@v2
+          with:
+            key: ${{ secrets.SSH_KEYCHAINKIT }}
+            known_hosts: unnecessary
+            name: ssh_keychainkit
             
-        - name: git clone with ssh
+        - name: print created files for ssh
+          run: ls -l ~/.ssh
+            
+        - name: git clone with ssh testkit
           run: git clone git@github.com:eazel/iOSTestKit.git
+          
+        - name: git clone with ssh keychainkit
+          run: git clone git@github.com:eazel/iOSKeychainServiceKit.git
+          
+        - name: print created files
+          run: ls -l
