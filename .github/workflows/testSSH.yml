@@ -22,8 +22,8 @@ jobs:
         - name: Install SSH keys
           uses: shimataro/ssh-key-action@v2
           with:
-            key: ${{ secrets.SSH_KEY_TEST }}
+            key: ${{ secrets.SSH_TESTKIT }}
             known_hosts: unnecessary
             
         - name: git clone with ssh
-          run: git clone git@github.com:yermukhanbet/PrivateRepository.git
+          run: git clone git@github.com:eazel/iOSTestKit.git
